@@ -16,7 +16,7 @@ function main(params) {
             console.log("***Iniciar simulacion***");
             console.log("Hechizo correcto:", intento);
             console.log("----------------------------------");
-            
+            i=2;
         } else {
             console.log("----------------------------------");
             console.log("***Iniciar simulacion***");
