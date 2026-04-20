@@ -1,42 +1,34 @@
 const leer = require("prompt-sync")();
 const HECHIZO = "PATRONUS";
-
+const TURNOS = 5;
 function main(params) {
-    let turnos = 5;
-    let intento = "DEF";
+    
+    let hechizoIngresado = "DEF";
     let vidaDementor = 1000;
     let vidaEstudiante = 350;
-    let dañoDementor = 75;
-    let dañoEstudiante = 267;
+    let danioDementor = 75;
+    let danioEstudiante = 267;
 
 
-    for (i = 0; i < turnos; i++) {
+    for (i = 0; i < TURNOS; i++) {
 
         console.log("Ingrese hechizo");
-        intento = leer();
+        hechizoIngresado = leer();
+        console.log("***Iniciar simulacion***");
+        console.log("turnos restantes", (TURNOS - 1) - i);
+        console.log("estudiante:", vidaEstudiante, "/dementor:", vidaDementor);
+        console.log("usa el hechizo");
+        console.log(hechizoIngresado);
 
-        if (intento === HECHIZO) {
-            console.log("***Iniciar simulacion***");
-            console.log("turnos restantes", 4 - i);
-            console.log("estudiante:", vidaEstudiante, "/dementor:", vidaDementor);
-
-            console.log("usa el hechizo");
-            console.log("Patronus");
-            console.log("acertaste:", dañoEstudiante, "inflingido al dementor");
-            vidaDementor -= dañoEstudiante;
-            console.log("--------------------------------------");
-
+        if (hechizoIngresado === HECHIZO) {
+            console.log("acertaste:", danioEstudiante, "inflingido al dementor");
+            vidaDementor -= danioEstudiante;
         } else {
-            console.log("***Iniciar simulacion***");
-            console.log("turnos restantes", 4 - i);
-            console.log("estudiante:", vidaEstudiante, "/ dementor:", vidaDementor);
-            console.log("usa el hechizo");
-            console.log("Patronus");
-            console.log("fallaste:", dañoDementor, "Daño recibido");
-            vidaEstudiante -= dañoDementor;
-            console.log("--------------------------------------");
+            console.log("fallaste:", danioDementor, "Daño recibido");
+            vidaEstudiante -= danioDementor;   
         }
-
+        console.log("--------------------------------------");
     }
+    console.log("***Simulacion finalizada***");
 }
 main();
